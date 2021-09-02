@@ -1,8 +1,7 @@
 import { Button, Popconfirm } from 'antd'
-import { SaveToDashboard } from 'lib/components/SaveToDashboard/SaveToDashboard'
 import React from 'react'
 import { FilterType, InsightType } from '~/types'
-import { SaveOutlined, ClearOutlined } from '@ant-design/icons'
+import { ClearOutlined } from '@ant-design/icons'
 import { useActions } from 'kea'
 import { router } from 'kea-router'
 import { eventUsageLogic } from 'lib/utils/eventUsageLogic'
@@ -18,14 +17,7 @@ interface Props {
     onReset?: () => void
 }
 
-export function InsightActionBar({
-    variant = 'header',
-    filters,
-    annotations = [],
-    insight,
-    showReset = true,
-    onReset,
-}: Props): JSX.Element {
+export function InsightActionBar({ variant = 'header', insight, showReset = true, onReset }: Props): JSX.Element {
     const { push } = useActions(router)
     const { reportInsightsTabReset } = useActions(eventUsageLogic)
     const screens = useBreakpoint()
